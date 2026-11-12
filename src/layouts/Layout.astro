@@ -1,3 +1,8 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -9,13 +14,9 @@
 		<title>Layout</title>
 	</head>
 	<body>
-		<header>
-			<h1>Her skal header være</h1>
-		</header>
+		<Header />
 		<slot />
-		<footer>
-			<p>Her skal footer være</p>
-		</footer>
+		<Footer />
 	</body>
 </html>
 
