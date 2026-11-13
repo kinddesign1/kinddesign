@@ -1,26 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const endpoint = 'https://zlesvdpxihvncfatrbrv.supabase.co/rest/v1/events?select=*' ;
-//const apikey = "sb_publishable_UaSkE1Bp88zpKvvigYgX3w_t35DG95l";
+const endpoint = 'https://zlesvdpxihvncfatrbrv.supabase.co/rest/v1/events?select=*';
 
 const options = {
     headers: {
         apikey: "sb_publishable_UaSkE1Bp88zpKvvigYgX3w_t35DG95l"
     },
+};
+const response = await fetch(endpoint, options);
+if (!response.ok) {
+    throw new Error(`Could not load events: ${response.status} ${response.statusText}`);
 }
-const data = await fetch(endpoint, options).then((res) => res.json());
-console.log(data);
+
+const data = await response.json();
+const columns = Array.isArray(data) && data.length > 0 ? Object.keys(data[0]) : [];
+
+function formatCell(value: unknown) {
+    if (value === null || value === undefined || value === '') return '—';
+    return typeof value === 'object' ? JSON.stringify(value) : String(value);
+}
 ---
 
 <Layout>
   <h1>Events</h1>
-  <ul>
-    {data.map((event) => (
-      <li key={event.id}>
-        <h2>{event.title}</h2>
-        <p>{event.description}</p>
-        <p>Date: {event.date}</p>
-      </li>
-    ))}
-  </ul>
+  {columns.length > 0 ? (
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column) => <th scope="col">{column}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((event) => (
+            <tr>
+              {columns.map((column) => <td>{formatCell(event[column])}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <p>No events found.</p>
+  )}
 </Layout>
+
+<style>
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+  }
+
+  th {
+    background: #ef9191;
+  }
+</style>
