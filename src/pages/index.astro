@@ -25,10 +25,7 @@ import Layout from '../layouts/Layout.astro';
         <h1>Welcome to Kind<br />Space!</h1>
 
         <div class="text-lines">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+         <p> A creative community bringing people together through design, inspiration and shared experiences. Connect with like-minded creatives, discover exciting events and find your place in a community where ideas grow and connections happen.</p>
         </div>
       </div>
 
@@ -52,6 +49,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 /*generel*/
+
 
 * {
     margin: 0; 
@@ -113,7 +111,7 @@ import Layout from '../layouts/Layout.astro';
 
 .welcome h1 {
     color: #ffffff; 
-    font-size: 24px; 
+    font-size: 40px; 
     font-weight: 700; 
     line-height: 1.2; 
     margin-bottom: 16px; 
@@ -126,10 +124,11 @@ import Layout from '../layouts/Layout.astro';
     width: 100%; 
 }
 
-.text-lines span {
+.text-lines p {
+    color: #ffffff;
     display: block; 
     width: 100%; 
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #d95726;
 }
 
 /*navigation */
@@ -162,5 +161,90 @@ import Layout from '../layouts/Layout.astro';
     transition: background-color 0.2s ease, transform 0.2s ease; 
 
 }
+
+  .nav-button:hover {
+    background-color: #CFE5EF;
+    transform: scale(1.04);
+    color: #000000;
+  }
+
+ 
+
+
+/* RESPONSIVE DESIGN - MOBILE */
+
+@media (max-width: 767px) {
+
+  /* HERO */
+
+  .hero {
+    height: 65vw;
+    min-height: 280px;
+  }
+
+  .hero-logo {
+    width: clamp(145px, 28vw, 205px);
+  }
+
+
+  /* INTRO SECTION */
+
+  .intro {
+    min-height: 700px;
+    padding: 58px 0 90px;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+
+  /* NAVIGATION - FIRST */
+
+  .navigation {
+    order: 1;
+    width: 90%;
+    max-width: 450px;
+    padding: 32px clamp(24px, 13vw, 96px);
+    border-radius: 20;
+    gap: 20px;
+  }
+
+  .nav-button {
+    width: 100%;
+    min-height: 63px;
+    font-size: 18px;
+    border-radius: 40px;
+  }
+
+
+  /* WELCOME TEXT - SECOND */
+
+  .welcome {
+    order: 2;
+    width: 100%;
+    padding: 0 5%;
+  }
+
+  .welcome h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+
+  /* DASHED LINES */
+
+  .text-lines {
+    width: 60%;
+    margin: 0 auto;
+    gap: 40px;
+  }
+
+  .text-lines p {
+    border-bottom: 3px solid #d95726;
+  }
+
+}
+
 
 </style>
