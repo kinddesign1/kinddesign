@@ -1,10 +1,166 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	Hej dette er index siden
+  <main class="homepage">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <img
+        src="img/forsideimg.webp"
+        alt="Mennesker samlet til et Kind Space arrangement"
+        class="hero-image"
+      />
+
+      <img
+        src="img/kindspacelogo01_1.webp"
+        alt="Kind Space logo"
+        class="hero-logo"
+      />
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro">
+      <div class="welcome">
+        <h1>Welcome to Kind<br />Space!</h1>
+
+        <div class="text-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- NAVIGATION BUTTONS -->
+      <nav class="navigation">
+        <a href="/kalender/" class="nav-button">
+          Kalender
+        </a>
+
+        <a href="/events/" class="nav-button">
+          Events
+        </a>
+
+        <a href="/meet-the-people/" class="nav-button">
+          Meet the people
+        </a>
+      </nav>
+    </section>
+  </main>
 </Layout>
+
+<style>
+/*generel*/
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+.homepage {
+    width: 100%;
+    min-height: 100vh; 
+
+}
+
+/* HERO SECTION */
+.hero {
+    width: 100%;
+    height: 65vh; 
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.hero-logo {
+    position: absolute; 
+    width: 190px; 
+    height: auto; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+/* INTRO SECTION */
+
+.intro {
+    background-color: #35352e;
+    min-height: 430px; 
+    padding: 75px 10%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px; 
+}
+
+/*welcome tekst*/ 
+
+.welcome {
+    width: 48%;
+    text-align: center; 
+    padding-top: 3px; 
+}
+
+.welcome h1 {
+    color: #ffffff; 
+    font-size: 24px; 
+    font-weight: 700; 
+    line-height: 1.2; 
+    margin-bottom: 16px; 
+}
+
+.text-lines {
+    display: flex;
+    flex-direction: column; 
+    gap: 26px; 
+    width: 100%; 
+}
+
+.text-lines span {
+    display: block; 
+    width: 100%; 
+    border-bottom: 2px solid #ffffff;
+}
+
+/*navigation */
+
+.navigation {
+    width: 40%; 
+    max-width: 300px; 
+    background-color: #ffffae;
+    border-radius: 20px;
+    padding: 23px 30px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    gap: 14px; 
+}
+
+.nav-button {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    min-height: 44px; 
+    padding: 10px; 
+    background-color: #d95726; 
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px; 
+    font-weight: 700;
+    border-radius: 13px;
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+
+}
+
+</style>
