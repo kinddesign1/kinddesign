@@ -1,19 +1,41 @@
 <header>
-	<a href="img/kpsticker.svg" class="logo">
-		<img src="img/kpsticker.svg" alt="KindSpacelogo" />
-	</a>
+	<img src="img/kindspacelogo02.webp" alt="Logo" class="logo" />
+
+	<nav>
+		<ul>
+			<li><a href="pages/kalender.astro">Calendar</a></li>
+			<li><a href="pages/events.astro">Events</a></li>
+			<li><a href="pages/meetthepeople.astro">About</a></li>
+		</ul>
+	</nav>
 </header>
 
 <style>
 	header {
-		display: flex;
-		justify-content: space-between;
-		padding: 0;
-		background-color: #ec520c;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		justify-content:space-between;
+		padding: 0px;
+		background-color: #37372D;
+		min-height: 90px;
 	}
 
-	.logo img {
-		max-width: 200px;
-        background-color: #ec520c;
+	.logo {
+		max-height: 80px;
+		max-width: 80px;
+
+		margin-left: 20px;
+	}
+
+	nav ul {
+		display: flex;
+		gap: 10rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		color: #FFFFFF;
+		font-size: 1.2rem;
 	}
 </style>
