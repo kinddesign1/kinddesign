@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+const endpoint = 'https://zlesvdpxihvncfatrbrv.supabase.co/rest/v1/events?select=*';
+const options = {
+    headers: {
+        apikey: "sb_publishable_UaSkE1Bp88zpKvvigYgX3w_t35DG95l"
+    },
+};
+const response = await fetch(endpoint, options);
+if (!response.ok) {
+    throw new Error(`Could not load events: ${response.status} ${response.statusText}`);
+}
+const data = await response.json();
+const columns = Array.isArray(data) && data.length > 0 ? Object.keys(data[0]) : [];
+function formatCell(value: unknown) {
+    if (value === null || value === undefined || value === '') return '—';
+    return typeof value === 'object' ? JSON.stringify(value) : String(value);
+}
+---
+
+<Layout>
+  <section class="heleside">
+    <div class="hero">
+      <h1>Calender</h1>
+    </div>
+
+    <div class="line">
+      <button class="btn1">December</button>
+      <button class="btn2">January</button>
+      <button class="btn3">February</button>
+      <button class="btn4">March</button>
+    </div>
+
+  {columns.length > 0 ? (
+    <div class="table-wrapper">
+      <p class="table-info">Se de forskellige events vi har i vores kalender! Der er alt fra talks, workshops og meetups, der er noget for alle!. Køb dine billetter i dag.</p>
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column) => <th scope="col">{column}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((event) => (
+            <tr>
+              {columns.map((column) => <td>{formatCell(event[column])}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <p>No events found.</p>
+  )}
+
+  </section>
+</Layout>
+
+<style>
+
+  .line {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    margin-bottom: 1rem;
+    background-color: #FEFDAC;
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+  }
+
+  .btn1,
+  .btn2,.btn3,.btn4 {
+    background-color: #EC520C;  
+
+    border-radius:18px;
+    border-color: #8B3319;
+    max-width: 150px;
+    min-height: 40px;
+
+    stroke: #8B3319;
+
+    margin: 1rem;
+
+    justify-content: center;
+    margin-left: 7.5rem;
+    }
+
+  .heleside {
+    padding: 2rem;
+    background-color: #37372D;
+    min-height: 100vh;
+
+  }
+
+  .heleside h1 {
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/kalenderimg.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: calc(100% + 4rem);
+    margin: 0 0 0 -2rem;
+    min-height: 600px;
+  }
+
+  .hero h1 {
+    color: #ffffff;
+    font-size: 45px;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+    margin-top: 16rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+
+    background-color: #FEFDAC;
+
+
+  }
+
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+  }
+
+  th {
+    background: #ec520c;
+  }
+</style>
