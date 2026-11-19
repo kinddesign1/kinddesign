@@ -1,0 +1,33 @@
+---
+const { link, title } = Astro.props;
+---
+
+<a href={link} class="nav-button">
+  {title}
+</a>
+
+<style>
+  .nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    background-color: #d95726;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 13px;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .nav-button:hover {
+    background-color: #cfe5ef;
+    transform: scale(1.04);
+    color: #000000;
+  }
+</style>

@@ -1,7 +1,205 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout>
-	Hej dette er index siden
+  <main class="homepage">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <img src="img/forsideimg.webp" alt="Mennesker samlet til et Kind Space arrangement" class="hero-image" />
+
+      <img src="img/kindspacelogo01_1.webp" alt="Kind Space logo" class="hero-logo" />
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro">
+      <div class="welcome">
+        <h1>
+          Welcome to Kind
+          <br />
+          Space!
+        </h1>
+
+        <div class="text-lines">
+          <p>
+            A creative community bringing people together through design, inspiration and shared experiences. Connect with like-minded creatives, discover exciting events and find your place in a community where ideas grow and connections happen.
+          </p>
+        </div>
+      </div>
+
+      <!-- NAVIGATION BUTTONS -->
+      <nav class="navigation">
+        <Button link="/kalender/" title="Kalender" />
+        <Button link="/events/" title="Events" />
+        <Button link="/meet-the-people/" title="Meet the people" />
+      </nav>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  /*generel*/
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .homepage {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    width: 100%;
+    height: 65vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .hero-logo {
+    position: absolute;
+    width: 190px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  /* INTRO SECTION */
+
+  .intro {
+    background-color: #35352e;
+    min-height: 430px;
+    padding: 75px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  /*welcome tekst*/
+
+  .welcome {
+    width: 48%;
+    text-align: center;
+    padding-top: 3px;
+  }
+
+  .welcome h1 {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .text-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+  }
+
+  .text-lines p {
+    color: #ffffff;
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid #d95726;
+  }
+
+  /*navigation */
+
+  .navigation {
+    width: 40%;
+    max-width: 300px;
+    background-color: #ffffae;
+    border-radius: 20px;
+    padding: 23px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* RESPONSIVE DESIGN - MOBILE */
+
+  @media (max-width: 767px) {
+    /* HERO */
+
+    .hero {
+      height: 65vw;
+      min-height: 280px;
+    }
+
+    .hero-logo {
+      width: clamp(145px, 28vw, 205px);
+    }
+
+    /* INTRO SECTION */
+
+    .intro {
+      min-height: 700px;
+      padding: 58px 0 90px;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+
+    /* NAVIGATION - FIRST */
+
+    .navigation {
+      order: 1;
+      width: 90%;
+      max-width: 450px;
+      padding: 32px clamp(24px, 13vw, 96px);
+      border-radius: 20;
+      gap: 20px;
+    }
+
+    .nav-button {
+      width: 100%;
+      min-height: 63px;
+      font-size: 18px;
+      border-radius: 40px;
+    }
+
+    /* WELCOME TEXT - SECOND */
+
+    .welcome {
+      order: 2;
+      width: 100%;
+      padding: 0 5%;
+    }
+
+    .welcome h1 {
+      font-size: 36px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    /* DASHED LINES */
+
+    .text-lines {
+      width: 60%;
+      margin: 0 auto;
+      gap: 40px;
+    }
+
+    .text-lines p {
+      border-bottom: 3px solid #d95726;
+    }
+  }
+</style>
