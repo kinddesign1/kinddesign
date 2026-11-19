@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const endpoint = 'https://zlesvdpxihvncfatrbrv.supabase.co/rest/v1/events?select=*';
-
 const options = {
     headers: {
         apikey: "sb_publishable_UaSkE1Bp88zpKvvigYgX3w_t35DG95l"
@@ -11,10 +10,8 @@ const response = await fetch(endpoint, options);
 if (!response.ok) {
     throw new Error(`Could not load events: ${response.status} ${response.statusText}`);
 }
-
 const data = await response.json();
 const columns = Array.isArray(data) && data.length > 0 ? Object.keys(data[0]) : [];
-
 function formatCell(value: unknown) {
     if (value === null || value === undefined || value === '') return '—';
     return typeof value === 'object' ? JSON.stringify(value) : String(value);
@@ -47,7 +44,7 @@ function formatCell(value: unknown) {
 
 <style>
 
-  
+
 
   .table-wrapper {
     overflow-x: auto;
