@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Meet The people</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <section class="hero">
+      <h1>MEET THE PEOPLE</h1>
+
+      <p>Vi er et kreativt team med forskellige styrker, idéer og passioner. Sammen arbejder vi for at skabe løsninger der er både brugervenlige, innovative og visuelt stærke.</p>
+    </section>
+
+    <section class="team">
+      <div class="team-grid">
+        <div class="card">
+          <div class="sticker">TEAM</div>
+
+          <div class="card-image">
+            <img src="../public/img/julia.webp" alt="" />
+          </div>
+
+          <div class="card-content">
+            <div class="role">Designer</div>
+            <h2>Julia</h2>
+            <p>Ansvarlig for design, visuel identitet og brugeroplevelse. Arbejder med at omsætte idéer til intuitive og flotte løsninger.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="sticker">TEAM</div>
+
+          <div class="card-image">
+            <img src="../public/img/jeremy.webp" alt="" />
+          </div>
+
+          <div class="card-content">
+            <div class="role">Frontend</div>
+            <h2>Jeremy</h2>
+            <p>Udvikler brugerflader og sørger for at designet fungerer perfekt på både computer, tablet og mobil.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="sticker">TEAM</div>
+
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800" alt="" />
+          </div>
+
+          <div class="card-content">
+            <div class="role">Research</div>
+            <h2>*navn her*</h2>
+            <p>Arbejder med brugerundersøgelser, tests og analyse af feedback, så løsningen matcher brugernes behov.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="sticker">TEAM</div>
+
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800" alt="" />
+          </div>
+
+          <div class="card-content">
+            <div class="role">Projektleder</div>
+            <h2>Medlem 4</h2>
+            <p>Planlægger arbejdsprocessen og holder styr på deadlines, koordinering og samarbejde i gruppen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="motto">
+      <h2>STRONGER TOGETHER</h2>
+
+      <p>Vores forskellige kompetencer gør os stærkere som team. Ved at kombinere design, udvikling, research og planlægning skaber vi løsninger med fokus på både brugeren og oplevelsen.</p>
+    </section>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #35352e;
+    font-family: "Poppins", sans-serif;
+    color: #111;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 80px 10%;
+  }
+
+  .hero h1 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: #ff5a00;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  .hero p {
+    max-width: 700px;
+    margin: 30px auto 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ffffff;
+  }
+
+  .team {
+    padding: 60px 8%;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+  }
+
+  .card {
+    background: white;
+    border: 5px solid #ffffae;
+    border-radius: 35px;
+    overflow: hidden;
+    transition: 0.4s;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-12px) rotate(-1deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image {
+    height: 320px;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+  }
+
+  .card:hover img {
+    transform: scale(1.08);
+  }
+
+  .card-content {
+    padding: 25px;
+  }
+
+  .role {
+    color: #d95726;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .card h2 {
+    margin-bottom: 15px;
+  }
+
+  .card p {
+    line-height: 1.7;
+  }
+
+  .sticker {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: #ffffae;
+    color: #35352e;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    transform: rotate(12deg);
+  }
+
+  .motto {
+    margin: 100px auto;
+    width: min(1000px, 90%);
+    background: #d95726;
+    color: white;
+    text-align: center;
+    padding: 60px;
+    border-radius: 40px;
+  }
+
+  .motto h2 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 20px;
+  }
+
+  .motto p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .motto {
+      padding: 40px 25px;
+    }
+
+    .card-image {
+      height: 260px;
+    }
+  }
+</style>
