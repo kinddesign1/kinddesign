@@ -1,19 +1,58 @@
 <header>
+<<<<<<< HEAD
 	<a href="img/kpsticker" class="logo">
 		<img src="img/kpsticker.svg" alt="KindSpacelogo" />
 	</a>
+=======
+	<img src="img/kindspacelogo02.webp" alt="Logo" class="logo" />
+
+	<nav>
+		<ul>
+			<li><a href="/pages/index.astro" aria-current={Astro.url.pathname === "/pages/index.astro" ? "page" : undefined}>Home</a></li>
+			<li><a href="/pages/kalender.astro" aria-current={Astro.url.pathname === "/pages/kalender.astro" ? "page" : undefined}>Calendar</a></li>
+			<li><a href="/pages/event.astro" aria-current={Astro.url.pathname === "/pages/event.astro" ? "page" : undefined}>Events</a></li>
+			<li><a href="/pages/meetthepeople.astro" aria-current={Astro.url.pathname === "/pages/meetthepeople.astro" ? "page" : undefined}>About</a></li>
+		</ul>
+	</nav>
+>>>>>>> headerfooter
 </header>
 
 <style>
 	header {
-		display: flex;
-		justify-content: space-between;
-		padding: 0;
-		background-color: #ec520c;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		justify-content:space-between;
+		padding: 0px;
+		background-color: #37372D;
+		min-height: 90px;
 	}
 
-	.logo img {
-		max-width: 200px;
-        background-color: #ec520c;
+	.logo {
+		max-height: 80px;
+		max-width: 80px;
+
+		margin-left: 20px;
+	}
+
+	nav ul {
+		display: flex;
+		gap: 10rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		margin-right: 180px;
+
+		color: #FFFFFF;
+		font-size: 17px;
+	}
+
+	nav a {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
+
+	nav a[aria-current="page"] {
+		text-decoration: underline;
 	}
 </style>
